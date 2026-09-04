@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!--
+  SEO Boost Corporate — HTML Formal Document Shell
+  =========================================
+  Copy this file, drop this comment block, replace everything between the
+  CONTENT START and CONTENT END markers in the body, then substitute the
+  placeholders.
+
+  NEVER write those markers as complete HTML comments inside THIS header block,
+  and never let any comment-closing sequence appear in it. HTML comments do not
+  nest, so the first one ends this block early and the rest of the note leaks
+  onto the page above the cover.
+  For the same reason, insert body content by locating the markers with
+  lastIndexOf — a non-greedy regex matches the mention here, not the real
+  marker in the body, and silently swallows the cover.
+
+  Logo placeholders (REQUIRED — the cover hero must carry the mark):
+    __LOGOMARK__   -> base64 of assets/seoboost-wordmark-light.png, downscaled ~560px
+  Back-page placeholders (only if you keep the closing-quote page):
+    __QUOTE__       -> the closing statement itself
+    __QUOTE_ATTR__  -> its source or context
+
+  Generate:
+    sips -Z 560 assets/seoboost-wordmark-light.png --out /tmp/sblogo.png
+    base64 -i /tmp/sblogo.png | tr -d '\n' > /tmp/sblogo.b64
+
+  seoboost-wordmark-light.png is the charcoal-surface mark — it glows orange-on-charcoal.
+  It is used on the cover hero AND the back page; both are dark surfaces.
+
+  Committed identity: white body "paper", charcoal tiles as structural anchors,
+  orange only ever GLOWING inside them. Orange is never readable text on white.
+-->
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<meta name="author" content="PT Algo Sea Biz">
+<meta name="description" content="__DESCRIPTION__">
+<style>
+/* ==========================================================================
+   SEO Boost Corporate — Formal Document Stylesheet (HTML lane)
+   Token source: design-tokens.md — keep in sync, never hardcode off-token hex.
+   ========================================================================== */
+:root{
+  --orange50:#FFF4E5; --orange100:#FFE8CC; --orange300:#FFB761;
+  --orange500:#FF8800;   /* BRAND MARK — never text on white */
+  --orange600:#C96A00; --orange700:#A85500; --orange800:#8F4A00; --orange900:#5C2F00;
+  --ink950:#131313;     /* cover hero base (darkest) */
+  --ink900:#231F20;     /* RARE: dark callout, table header, metric tiles, back page */
+  --ink850:#2E2B27;     /* Title/H1 text; H1 section BAND fill (routine charcoal) */
+  --ink800:#3A3733;     /* logo stripe — BODY TEXT default, H2 text */
+  --ink700:#4F4B45; --ink600:#5C5850; --ink500:#77776F; --ink300:#B4B2AA;
+  --sand50:#F7F7F4; --sand100:#F0F0EB; --sand200:#E5E5E1;
+  --sand300:#D9D9D4; --sand400:#A5A39B;
+  --paper:#FFFFFF;
+  --onDark:#F4F4F0;      /* text on charcoal (premium soft white) */
+  --onDarkMuted:#A9A79F; /* secondary text on charcoal */
+  --successB:#A85500; --successBg:#FFF4E5; --successT:#8F4A00;
+  --warningB:#8A6410; --warningBg:#FBF1E4; --warningT:#8A6410;
+  --dangerB:#A82828;  --dangerBg:#FBEBEB;  --dangerT:#A82828;
+  --infoB:#2B5C9C;    --infoBg:#EAF0F8;    --infoT:#2B5C9C;
+  --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+  --mono:"Cascadia Code",Consolas,"Courier New",monospace;
+  /* rCard 6px = rounded-md, standar house SEO Boost (lihat seoboost-financial-report-ui).
+     Berlaku untuk SEMUA permukaan kartu: pita bagian, kartu metrik, tahap alur,
+     pembungkus tabel, callout. Jangan biarkan komponen bersudut siku sendirian. */
+  --rCard:6px; --rChip:10px; --maxw:58rem;
+  color-scheme:light only;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--sand100); color:var(--ink800);
+  font-family:var(--font); font-size:16px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{
+  max-width:var(--maxw); margin:0 auto; background:var(--paper);
+  padding:clamp(1.5rem,4vw,3.5rem);
+  box-shadow:0 1px 3px rgba(20,20,20,.06),0 8px 32px rgba(20,20,20,.06);
+}
+@media(min-width:64rem){ .sheet{margin:2.5rem auto} }
+
+/* ---------- Cover: full-bleed charcoal hero ---------- */
+.cover{
+  background:var(--ink950);
+  margin:calc(-1 * clamp(1.5rem,4vw,3.5rem)) calc(-1 * clamp(1.5rem,4vw,3.5rem)) 0;
+  padding:clamp(2.5rem,6vw,4.5rem) clamp(1.75rem,5vw,4rem);
+  display:flex; flex-direction:column; gap:clamp(2.5rem,7vw,5rem);
+}
+.cover__mark{display:block;width:clamp(190px,32%,268px);height:auto}
+.cover__rule{width:76px;height:5px;background:var(--orange500);border-radius:2px;margin-bottom:1.15rem}
+.cover__title{
+  font-size:clamp(1.75rem,4.6vw,2.4rem); line-height:1.14; font-weight:700;
+  color:var(--onDark); margin:0 0 .55rem; letter-spacing:-.015em;
+}
+.cover__sub{font-size:1.02rem;color:var(--onDarkMuted);margin:0 0 1.15rem;max-width:44ch;line-height:1.45}
+.cover__type{
+  font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:700;color:var(--orange500);margin:0;
+}
+.meta{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:1rem 1.75rem; border-top:1px solid var(--ink700); padding-top:1.4rem;
+}
+.meta__k{
+  font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--onDarkMuted);font-weight:700;margin:0 0 .22rem;
+}
+.meta__v{font-size:.9rem;color:var(--onDark);margin:0;font-weight:400}
+.cover__foot{margin:0;font-size:.8rem;color:var(--onDarkMuted)}
+.cover__foot b{color:var(--onDark);font-weight:700}
+
+/* ---------- Section header: charcoal band + orange lead-tick, NO number ---------- */
+.sec{margin-top:3rem}
+.sec__band{
+  background:var(--ink850); padding:.72rem 1.05rem;
+  display:flex; align-items:center; gap:.55rem;
+  border-radius:var(--rCard);
+}
+.sec__tick{color:var(--orange500);font-weight:700;font-size:1.05rem;line-height:1}
+.sec__h{font-size:clamp(1.05rem,2.3vw,1.22rem);font-weight:700;color:var(--onDark);margin:0;line-height:1.3}
+.sec__shelf{height:1px;background:var(--sand200);margin-bottom:1.5rem}
+h3{font-size:1.02rem;font-weight:700;color:var(--ink800);margin:2rem 0 .5rem;line-height:1.35}
+h3 .n{color:var(--ink600);font-weight:700;margin-right:.5rem}
+h4{font-size:.94rem;font-weight:700;color:var(--ink700);margin:1.5rem 0 .4rem}
+/* the ONLY orange heading-text on white */
+.h-accent{font-size:.9rem;font-weight:700;color:var(--orange700);margin:1.4rem 0 .35rem}
+p{margin:0 0 .95rem}
+strong{color:var(--ink850);font-weight:700}
+a{color:var(--orange700);font-weight:700;text-decoration:none;border-bottom:1px solid var(--orange100)}
+a:hover{border-bottom-color:var(--orange700)}
+ul,ol{margin:0 0 1rem;padding-left:1.3rem}
+li{margin-bottom:.38rem}
+ul li::marker{color:var(--orange500);content:"▪  "}
+ol li::marker{color:var(--ink800);font-weight:700}
+/* Dark-surface text override. REQUIRED: the global strong/em rules above are more
+   specific than the parent's colour, so inline emphasis inside any charcoal surface
+   renders charcoal-on-charcoal and disappears. Keep this rule next to the global one
+   so the pair is never separated. Applies to every dark surface in the system. */
+.cover strong,.cover em,.back strong,.back em,
+.note--dark strong,.note--dark em,
+.metric strong,.flow__s strong,thead th strong{color:#fff}
+.note--dark code,.cover code,.back code{background:#333;color:var(--green200)}
+code{font-family:var(--mono);font-size:.86em;color:var(--orange800);background:var(--sand100);padding:.1em .35em;border-radius:2px}
+.lede{font-size:1.02rem;color:var(--ink700);line-height:1.55}
+.cap{font-size:.78rem;color:var(--ink500);font-style:italic;text-align:center;margin:.4rem 0 1.3rem}
+
+/* ---------- Status chips ---------- */
+.chip{display:inline-block;padding:.18rem .6rem;border-radius:var(--rChip);font-size:.7rem;font-weight:700;border:1px solid;white-space:nowrap;line-height:1.5}
+.chip--ok{color:var(--successT);background:var(--successBg);border-color:var(--successB)}
+.chip--warn{color:var(--warningT);background:var(--warningBg);border-color:var(--warningB)}
+.chip--risk{color:var(--dangerT);background:var(--dangerBg);border-color:var(--dangerB)}
+.chip--info{color:var(--infoT);background:var(--infoBg);border-color:var(--infoB)}
+.chip--mute{color:var(--ink500);background:var(--sand50);border-color:var(--sand300)}
+
+/* ---------- Metric cards: charcoal tiles, orange value ---------- */
+/* gap .5rem (bukan 2px): kartu bersudut membulat butuh jarak agar terbaca sebagai
+   kartu terpisah, bukan satu slab yang sudutnya tercoak. */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.5rem;margin:0 0 1.6rem}
+.metric{background:var(--ink900);padding:1.15rem .9rem;text-align:center;border-radius:var(--rCard)}
+.metric__n{font-size:1.5rem;font-weight:700;color:var(--orange500);line-height:1.1;margin:0 0 .3rem}
+.metric__l{font-size:.74rem;color:var(--onDarkMuted);margin:0;line-height:1.4}
+
+/* ---------- Process flow: charcoal stages + orange chevrons ---------- */
+.flow{display:flex;align-items:stretch;gap:.5rem;margin:0 0 1.6rem;flex-wrap:wrap}
+.flow__s{flex:1 1 8rem;background:var(--ink900);padding:.85rem .6rem;text-align:center;border-radius:var(--rCard)}
+.flow__k{font-size:.6rem;color:var(--onDarkMuted);margin:0 0 .2rem;letter-spacing:.06em}
+.flow__t{font-size:.82rem;font-weight:700;color:var(--onDark);margin:0;line-height:1.35}
+.flow__c{align-self:center;color:var(--orange500);font-size:1.25rem;font-weight:700;line-height:1}
+@media(max-width:34rem){ .flow__c{display:none} .flow__s{flex:1 1 100%} }
+
+/* ---------- Tables: charcoal header + orange bottom-seam + zebra ---------- */
+/* border + radius di pembungkus .tw, bukan di elemen tabel: overflow-x:auto membuat
+   kotak ini meng-clip, sehingga sudut charcoal thead ikut membulat tanpa trik per-sel.
+   Jangan tulis tag markup literal di komentar CSS — gate build menghitungnya. */
+.tw{overflow-x:auto;margin:0 0 1.5rem;border:1px solid var(--sand200);border-radius:var(--rCard)}
+table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.82rem}
+thead th{
+  background:var(--ink900);color:var(--onDark);text-align:left;
+  font-size:.7rem;font-weight:700;padding:.62rem .75rem;line-height:1.4;
+  border-bottom:2px solid var(--orange500);
+}
+tbody td{padding:.62rem .75rem;border-top:1px solid var(--sand200);color:var(--ink700);vertical-align:top;line-height:1.5}
+tbody tr:nth-child(even) td{background:var(--sand50)}
+tbody td:first-child{color:var(--ink850);font-weight:700}
+.tcap{font-size:.75rem;color:var(--ink500);margin:-1rem 0 1.5rem;font-style:italic}
+
+/* ---------- Callouts: full border + tint + labeled heading (NO side stripe) ---------- */
+.note{border:1px solid;border-radius:var(--rCard);padding:.95rem 1.05rem;margin:0 0 1.5rem}
+.note__l{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 0 .38rem}
+.note p:last-child{margin-bottom:0}
+.note--note{border-color:var(--sand300);background:var(--sand50)}
+.note--note .note__l{color:var(--ink800)}
+.note--ok{border-color:var(--successB);background:var(--successBg)}
+.note--ok .note__l{color:var(--successT)}
+.note--warn{border-color:var(--warningB);background:var(--warningBg)}
+.note--warn .note__l{color:var(--warningT)}
+.note--risk{border-color:var(--dangerB);background:var(--dangerBg)}
+.note--risk .note__l{color:var(--dangerT)}
+.note--info{border-color:var(--infoB);background:var(--infoBg)}
+.note--info .note__l{color:var(--infoT)}
+/* dark hero callout — MAX 2 PER DOCUMENT. Scarcity is what makes it premium. */
+.note--dark{border-color:var(--ink900);background:var(--ink900);padding:1.3rem 1.4rem}
+.note--dark .note__l{color:var(--orange500)}
+.note--dark p{color:var(--onDark);font-size:1rem;line-height:1.5}
+
+/* ---------- Footer ---------- */
+.foot{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--sand200);font-size:.75rem;color:var(--ink500);line-height:1.55}
+.foot p{margin:0 0 .28rem}
+.foot b{color:var(--ink800)}
+
+/* ---------- Back page: closing quote (optional, always last) ----------
+   Orange may sit large and bright here: it is a dark surface. */
+.back{
+  background:var(--ink950);
+  margin:3.5rem calc(-1 * clamp(1.5rem,4vw,3.5rem)) calc(-1 * clamp(1.5rem,4vw,3.5rem));
+  padding:clamp(2.25rem,5vw,3.5rem);
+  display:flex;flex-direction:column;justify-content:space-between;gap:3.25rem;
+}
+.back__tick{width:52px;height:5px;background:var(--orange500);border-radius:2px;margin-bottom:1.75rem}
+.back blockquote{margin:0}
+.back blockquote p{color:var(--onDark);font-size:1.12rem;line-height:1.6;font-weight:500;max-width:46ch;margin:0}
+.back__attr{color:var(--onDarkMuted);font-size:.8rem;margin:1.5rem 0 0;line-height:1.5}
+.back__foot{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
+.back__mark{width:172px;height:auto;display:block}
+.back__r{text-align:right;color:var(--onDarkMuted);font-size:.75rem;line-height:1.7;margin:0}
+.back__r b{color:var(--onDark);letter-spacing:.03em}
+@media(max-width:34rem){ .back__foot{flex-direction:column;align-items:flex-start;gap:1.5rem} .back__r{text-align:left} }
+
+/* ---------- Print ---------- */
+@page{size:Letter;margin:1in .9in .9in}
+/* Cover hero and back page bleed to the paper edge: a named page with no
+   margin. Chrome honours named @page rules, so only these two pages lose their
+   margin — body pages keep theirs. Do NOT set margin:0 on the default @page
+   instead: the flowing body would then run to the paper edge on every page. */
+@page bleed{margin:0}
+@media print{
+  /* AKAR CACAT UKURAN HURUF SAAT CETAK — jangan hapus baris html ini.
+     rem mengacu ke elemen ROOT, bukan ke body. Sebelumnya hanya body yang diubah ke
+     10,5pt sementara root tetap 16px, sehingga SELURUH ukuran berbasis rem tetap
+     terikat 16px: .lede tercetak 12,2pt di samping paragraf 10,5pt, h3 juga 12,2pt,
+     isi tabel 9,8pt. Proporsi yang dirancang untuk layar rusak di kertas dan hasilnya
+     terbaca seperti ukuran huruf acak. Ditemukan pada project KLIEN A, 5 Agu 2026. */
+  html{font-size:10.5pt}
+  body{background:var(--paper);font-size:1rem}
+
+  /* Tangga ukuran cetak: 13,4 / 12,0 / 10,7 / 10,5 / 10,0 / 9,2 / 8,6 / 8,0 / 7,6 pt */
+  .sec__h{font-size:1.28rem}
+  h3{font-size:1.14rem}
+  h4{font-size:1.02rem}
+  .h-accent{font-size:.95rem}
+  .lede{font-size:1rem}
+  .note p{font-size:1rem}
+  table{font-size:.88rem}
+  thead th{font-size:.76rem}
+  .cap,.tcap{font-size:.82rem}
+  .note__l{font-size:.72rem}
+  .chip{font-size:.72rem}
+  .foot{font-size:.78rem}
+  .sheet{box-shadow:none;margin:0;padding:0;max-width:none}
+  .cover{page:bleed;margin:0;padding:1.3in 1.15in;min-height:11in;break-after:page;justify-content:space-between}
+  .sec{margin-top:1.5rem;break-inside:avoid-page}
+  .sec__h,h3,h4,.h-accent{break-after:avoid}
+  .note,.tw,.metric,.metrics,.flow,.back{break-inside:avoid}
+  thead{display:table-header-group}
+  tbody tr{break-inside:avoid}
+  a{border-bottom:0;color:var(--ink850)}
+  /* page:bleed removes the margin, so min-height is the full Letter height */
+  .back{page:bleed;break-before:page;margin:0;padding:1.3in 1.15in;min-height:11in}
+  .back blockquote p{font-size:13.5pt;line-height:1.56}
+  .back__attr{font-size:9pt}
+  .back__r{font-size:8.5pt}
+}
+</style>
+</head>
+<body>
+<main class="sheet">
+
+<header class="cover">
+  <img class="cover__mark" src="data:image/png;base64,__LOGOMARK__" alt="SEO Boost Indonesia">
+
+  <div>
+    <div class="cover__rule"></div>
+    <h1 class="cover__title">__TITLE__</h1>
+    <p class="cover__sub">__SUBTITLE__</p>
+    <p class="cover__type">__DOCTYPE__</p>
+  </div>
+
+  <div>
+    <div class="meta">
+      <div><p class="meta__k">Disiapkan untuk</p><p class="meta__v">__PREPARED_FOR__</p></div>
+      <div><p class="meta__k">Disiapkan oleh</p><p class="meta__v">__OWNER__</p></div>
+      <div><p class="meta__k">Versi</p><p class="meta__v">__VERSION__</p></div>
+      <div><p class="meta__k">Tanggal</p><p class="meta__v">__DATE__</p></div>
+      <div><p class="meta__k">Klasifikasi</p><p class="meta__v">__CLASSIFICATION__</p></div>
+    </div>
+    <p class="cover__foot"><b>SEO Boost Indonesia</b> &nbsp;·&nbsp; Market Smarter</p>
+  </div>
+</header>
+
+<!-- CONTENT START -->
+
+<section class="sec">
+  <div class="sec__band"><span class="sec__tick">▍</span><h2 class="sec__h">Judul bagian</h2></div>
+  <div class="sec__shelf"></div>
+
+  <p class="lede">Paragraf pembuka yang sedikit lebih besar, untuk membingkai isi bagian.</p>
+  <p>Paragraf biasa.</p>
+
+  <h3><span class="n">1.1</span>Sub-bagian</h3>
+  <p>Isi sub-bagian.</p>
+
+  <p class="h-accent">Label aksen hijau — satu-satunya teks hijau di atas putih</p>
+
+  <div class="metrics">
+    <div class="metric"><p class="metric__n">5 Unit</p><p class="metric__l">Keterangan singkat</p></div>
+    <div class="metric"><p class="metric__n">SAK EP</p><p class="metric__l">Keterangan singkat</p></div>
+  </div>
+
+  <p>Prosa penafsir wajib menyertai kartu metrik — dan sekaligus menjaga agar dua blok
+  charcoal tidak pernah bersentuhan langsung. Lihat "Charcoal value-reservation".</p>
+
+  <div class="flow">
+    <div class="flow__s"><p class="flow__k">Tahap 1</p><p class="flow__t">Nama tahap</p></div>
+    <span class="flow__c">›</span>
+    <div class="flow__s"><p class="flow__k">Tahap 2</p><p class="flow__t">Nama tahap</p></div>
+  </div>
+
+  <p>Paragraf pemisah sebelum tabel, dengan alasan yang sama.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th style="width:30%">Kolom</th><th style="width:70%">Kolom</th></tr></thead>
+      <tbody><tr><td>Sel tebal</td><td>Isi sel</td></tr></tbody>
+    </table>
+  </div>
+  <p class="tcap">Keterangan tabel bila perlu.</p>
+
+  <div class="note note--note">
+    <p class="note__l">Label callout</p>
+    <p>Isi callout. Varian: note · ok · warn · risk · info · dark.</p>
+  </div>
+</section>
+
+<!-- CONTENT END -->
+
+<footer class="foot">
+  <p><b>__TITLE__</b></p>
+  <p>Versi __VERSION__ &middot; __DATE__ &middot; Klasifikasi: __CLASSIFICATION__</p>
+  <p>PT Algo Sea Biz</p>
+</footer>
+
+<!--
+  BACK PAGE (optional). Keep it for documents that deserve a closing statement;
+  DELETE the whole section otherwise, as a unit, so its placeholders go with it.
+  Must stay AFTER the footer: it is the last page, not a content section.
+  Quote a real source, or the document's own position attributed as such. Never
+  invent a quotation and put someone's name under it.
+-->
+<section class="back">
+  <div>
+    <div class="back__tick"></div>
+    <blockquote><p>__QUOTE__</p></blockquote>
+    <p class="back__attr">__QUOTE_ATTR__</p>
+  </div>
+  <div class="back__foot">
+    <img class="back__mark" src="data:image/png;base64,__LOGOMARK__" alt="SEO Boost Indonesia">
+    <p class="back__r">
+      <b>SEO BOOST INDONESIA</b> &nbsp;·&nbsp; Market Smarter<br>
+      __TITLE__ &middot; v__VERSION__ &middot; __DATE__<br>
+      Disiapkan untuk __PREPARED_FOR__
+    </p>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

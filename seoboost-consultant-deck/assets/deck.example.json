@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "Regional Airport Upgrade",
+    "subtitle": "Strategic Business Case — Final Presentation",
+    "date": "1 March 2026",
+    "footer": "Prepared by [Advisor] for [Client]"
+  },
+  "theme": {
+    "navy": "#1B3A6B",
+    "navy_deep": "#12285A",
+    "red": "#C00000",
+    "teal": "#00B0A0",
+    "ink": "#262626",
+    "grey": "#7F7F7F"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "Regional Airport Upgrade",
+      "subtitle": "Strategic Business Case",
+      "tag": "Final Presentation",
+      "date": "1 March 2026"
+    },
+    {
+      "type": "divider",
+      "letter": "A",
+      "title": "Project Overview"
+    },
+    {
+      "type": "content",
+      "kicker": "Recommendation",
+      "title": "Upgrading the airfield is strongly justified and should proceed in four phases",
+      "bullets": [
+        "Demand outstrips existing capacity within the decade¹",
+        "A phased plan de-risks capital exposure while capturing early benefits",
+        "A public–commercial (PPP) structure best balances control and delivery risk"
+      ],
+      "footnotes": ["¹ Illustrative — replace with sourced demand model (source · year · assumption)"],
+      "page": 3
+    },
+    {
+      "type": "table",
+      "kicker": "Institutional options",
+      "title": "A public–commercial (PPP) structure scores best across control, funding and delivery",
+      "columns": ["Criterion", "Public UPTD", "KSP concession", "PPP (recommended)"],
+      "rows": [
+        ["Capital burden on government", "red", "amber", "green"],
+        ["Speed of delivery", "amber", "amber", "green"],
+        ["Public control retained", "green", "amber", "amber"]
+      ],
+      "highlight_col": 3,
+      "footnotes": ["Illustrative RAG assessment — replace with engagement criteria"],
+      "page": 4
+    },
+    {
+      "type": "conclusion",
+      "title": "The upgrade is promising; recommendation is to proceed to detailed design",
+      "bullets": [
+        "Strategic fit confirmed across the three assessment lenses",
+        "Phased plan is financially viable with commercialisation from Phase 2",
+        "Institutional pathway (PPP) identified and stakeholder-endorsed"
+      ],
+      "next_steps": [
+        "Endorse the recommended phasing and institutional structure",
+        "Commission detailed design and procurement strategy for Phase 1"
+      ],
+      "page": 5
+    }
+  ]
+}

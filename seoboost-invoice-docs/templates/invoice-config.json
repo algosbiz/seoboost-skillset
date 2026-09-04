@@ -1,0 +1,50 @@
+{
+  "_comment": "SEO Boost invoice config. Only `recipient`, `invoiceNo`, dates, `subtitle`, `items`, and `director` are usually edited. `issuer`/`logo` default to SEO Boost; `bank` has NO default — set it once for your account. Money math (subtotal, allocation, total tunai) and terbilang are computed by the generator; never hand-type them.",
+  "output": "Invoice_SEO Boost-PT-Contoh_v1.0.docx",
+  "invoiceNo": "INV/SEO Boost-CTH/06/2026",
+  "date": "01 Juni 2026",
+  "dueDate": "15 Juni 2026",
+  "subtitle": "Jasa SEO & Content Marketing — Periode Juni 2026",
+
+  "recipient": {
+    "name": "PT. Contoh Klien",
+    "attn": "u.p. Marketing / Bagian Keuangan",
+    "line3": "di Tempat"
+  },
+
+  "items": [
+    {
+      "desc": [
+        "Retainer SEO Bulanan",
+        "Technical audit, on-page optimization, internal linking, dan monitoring peringkat"
+      ],
+      "qty": "1 bulan",
+      "amount": 7500000
+    },
+    {
+      "desc": [
+        "Paket Content Marketing, mencakup:",
+        "1. Riset kata kunci & content brief (10 topik)",
+        "2. Penulisan 6 artikel long-form",
+        "3. Optimasi meta title & description",
+        "4. Laporan performa bulanan"
+      ],
+      "qty": "1 paket",
+      "amount": 5000000
+    }
+  ],
+
+  "callout": {
+    "title": "Catatan",
+    "color": "brand",
+    "lines": [
+      [
+        { "text": "Total tagihan untuk periode ini adalah " },
+        { "text": "Rp 12.500.000", "bold": true, "color": "2E2B27" },
+        { "text": ". Laporan performa dikirim paling lambat tanggal 5 bulan berikutnya." }
+      ]
+    ]
+  },
+
+  "director": "<Nama Direktur>"
+}

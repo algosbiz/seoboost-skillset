@@ -1,0 +1,25 @@
+{
+  "output": "PKS_SEO Boost-Klien_v1.0.docx",
+
+  "nomor": {
+    "pertama": "00X/PKS/SBI/<bulan-romawi>/<tahun>",
+    "kedua": "000/PKS/<KODE-KLIEN>/<bulan-romawi>/<tahun>"
+  },
+
+  "penandatanganan": {
+    "kota": "Badung",
+    "hari": "Senin",
+    "tanggal": "1",
+    "bulan": "Juni",
+    "tahun": "2026"
+  },
+
+  "pihakKedua": {
+    "nama": "PT Nama Klien",
+    "bentuk": "sebuah perseroan terbatas yang didirikan berdasarkan hukum Negara Republik Indonesia",
+    "kedudukan": "berkedudukan di <alamat lengkap klien>",
+    "wakil": "Nama Penanda Tangan Klien",
+    "jabatan": "Direktur",
+    "deskripsiUsaha": "merupakan badan usaha yang menjalankan kegiatan usaha <deskripsi singkat bidang usaha klien>."
+  }
+}

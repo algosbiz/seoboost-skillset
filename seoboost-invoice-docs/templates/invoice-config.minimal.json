@@ -1,0 +1,27 @@
+{
+  "_comment": "Simplest SEO Boost invoice: one line item, no donatur allocation. Issuer, bank, and logo fall back to SEO Boost defaults. Generator computes Subtotal + Total Tagihan + terbilang automatically.",
+  "output": "Invoice_SEOBoost-ClientName_v1.0.docx",
+  "invoiceNo": "INV/SEO Boost-XXX/06/2026",
+  "date": "01 Juni 2026",
+  "dueDate": "15 Juni 2026",
+  "subtitle": "Jasa Pengembangan Aplikasi",
+
+  "recipient": {
+    "name": "PT. Nama Klien",
+    "attn": "u.p. Bagian Keuangan",
+    "line3": "di Tempat"
+  },
+
+  "items": [
+    {
+      "desc": [
+        "Jasa Pengembangan Aplikasi Mobile (Android & iOS)",
+        "Termasuk desain UI, backend API, dan deployment"
+      ],
+      "qty": "1 paket",
+      "amount": 25000000
+    }
+  ],
+
+  "director": "<Nama Direktur>"
+}

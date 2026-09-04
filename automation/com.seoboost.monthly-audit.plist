@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.seoboost.monthly-audit</string>
+
+	<!-- launchd tidak meng-expand ~ maupun $HOME: path harus literal.
+	     Mesin selain M4 Mac (user hash) WAJIB mengganti /Users/hash/...
+	     sesuai lokasi clone repo — lihat automation/MONTHLY-AUDIT.md. -->
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>/Users/hash/.claude/seoboost-skill-set/automation/seoboost-monthly-audit.sh</string>
+	</array>
+
+	<!-- Tiap tanggal 1, jam 07:00 waktu lokal. -->
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Day</key>
+		<integer>1</integer>
+		<key>Hour</key>
+		<integer>7</integer>
+		<key>Minute</key>
+		<integer>0</integer>
+	</dict>
+
+	<!-- PATH default launchd tidak memuat lokasi binary claude
+	     (/Users/hash/.local/bin) — set eksplisit di sini. -->
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/Users/hash/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+	</dict>
+
+	<!-- Penampung keluaran launchd sendiri; log utama per-run tetap ditulis
+	     script ke ~/.claude/logs/seoboost-monthly-audit-<tanggal>.log. -->
+	<key>StandardOutPath</key>
+	<string>/Users/hash/.claude/logs/seoboost-monthly-audit-launchd.log</string>
+	<key>StandardErrorPath</key>
+	<string>/Users/hash/.claude/logs/seoboost-monthly-audit-launchd.log</string>
+</dict>
+</plist>

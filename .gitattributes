@@ -1,0 +1,55 @@
+# Line-ending policy for seoboost-skill-set.
+#
+# WHY THIS FILE EXISTS
+# The repo is worked from macOS, Linux and — since 2026-08-04 — Windows. Without
+# a .gitattributes the stored line endings depend entirely on each machine's
+# `core.autocrlf`. Git for Windows defaults it to `true` (safe), but a contributor
+# who sets it to `false` would commit real CRLF, and the 13 shell scripts here
+# would then fail on every POSIX host with `$'\r': command not found`.
+# This file removes that dependency: the repo decides, not the machine.
+#
+# EFFECT ON EXISTING HISTORY: NONE.
+# Audited before adding, with `git ls-files --eol` over all 1038 tracked files:
+#   989 blobs  i/lf     (already LF)
+#    35 blobs  i/-text  (binary, correctly detected: png/pdf/docx/pptx)
+#    13 blobs  i/none   (empty, e.g. .gitkeep)
+#     0 blobs  i/crlf or i/mixed  <-- nothing to renormalize
+# So `text=auto` rewrites no file and produces no diff. Verified afterwards with
+# `git add --renormalize .` staging nothing but this file.
+
+# ---------------------------------------------------------------------------
+# Default: normalize every text file to LF *inside the repository*.
+# Checkout remains governed by core.autocrlf, so a Windows working tree may still
+# show CRLF locally — harmless, and it never reaches a commit.
+* text=auto
+
+# ---------------------------------------------------------------------------
+# Files executed on POSIX hosts must be LF in the WORKING TREE too, not just in
+# the repo — a Windows checkout of these gets copied to Linux/macOS servers as-is.
+# A stray CR breaks bash outright and makes shellcheck report SC1017 on every line.
+*.sh        text eol=lf
+*.service   text eol=lf
+*.plist     text eol=lf
+
+# ---------------------------------------------------------------------------
+# Binaries — never transform. Git already auto-detects the four types currently
+# tracked; these are declared so a future addition (a .zip export, a font, an
+# .xlsx deliverable) can never be mangled by the text=auto heuristic.
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.webp      binary
+*.ico       binary
+*.svgz      binary
+*.pdf       binary
+*.docx      binary
+*.xlsx      binary
+*.pptx      binary
+*.zip       binary
+*.gz        binary
+*.tar       binary
+*.woff      binary
+*.woff2     binary
+*.ttf       binary
+*.otf       binary

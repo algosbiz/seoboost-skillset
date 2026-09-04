@@ -1,0 +1,19 @@
+# Per-profile timer. Save as ~/.config/systemd/user/telegram-briefing-<profile-id>.timer
+# (e.g. telegram-briefing-acme-daily.timer), then:
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now telegram-briefing-acme-daily.timer
+[Unit]
+Description=Briefing schedule (acme-daily)
+
+[Timer]
+# systemd >= 252 accepts a timezone here. Examples:
+#   daily 07:00 Jakarta : *-*-* 07:00 Asia/Jakarta
+#   weekly Mon 08:00    : Mon *-*-* 08:00 Asia/Makassar
+# Older systemd: drop the tz and convert to the host's local/UTC time instead.
+OnCalendar=*-*-* 07:00 Asia/Jakarta
+Persistent=true
+# The timer name does NOT auto-map to the templated instance — point it explicitly:
+Unit=telegram-briefing@acme-daily.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,46 @@
+{
+  "output": "PKS_SEO Boost-SNR_Konsultasi_Pendampingan_v1.0.docx",
+
+  "nomor": {
+    "pertama": "002/PKS/SBI/V/2026",
+    "kedua": "000/PKS/PT-SNR/V/2026"
+  },
+
+  "penandatanganan": {
+    "kota": "Badung",
+    "hari": "Senin",
+    "tanggal": "4",
+    "bulan": "Mei",
+    "tahun": "2026"
+  },
+
+  "judul": {
+    "baris1": "PERJANJIAN KERJA SAMA",
+    "baris2": "KONSULTASI DAN PENDAMPINGAN TEKNOLOGI DAN BISNIS"
+  },
+
+  "pihakKedua": {
+    "nama": "PT Klien C",
+    "bentuk": "sebuah perseroan terbatas yang didirikan berdasarkan hukum Negara Republik Indonesia",
+    "kedudukan": "berkedudukan di Lingkungan Penyarikan, Kelurahan Benoa, Kuta Selatan, Kabupaten Badung, Bali",
+    "wakil": "<Nama Wakil>",
+    "jabatan": "Direktur Utama",
+    "deskripsiUsaha": "merupakan badan usaha yang menjalankan kegiatan usaha distribusi, pengembangan rantai pasok, dan/atau kegiatan usaha lain yang relevan, termasuk penguatan ekosistem operasional melalui inisiatif SEMBA.GO dan/atau inisiatif turunan lainnya."
+  },
+
+  "ketentuan": {
+    "jangkaWaktu": "1 (satu) tahun",
+    "masaKerahasiaan": "2 (dua) tahun",
+    "wanprestasiCure": "30 (tiga puluh) hari kalender",
+    "pembayaranHariKerja": "7 (tujuh) Hari Kerja",
+    "kaharNotif": "7 (tujuh) Hari Kerja",
+    "musyawarahHari": "30 (tiga puluh) hari kalender",
+    "forumSengketa": "Pengadilan Negeri Denpasar",
+    "rangkap": "2 (dua) rangkap asli"
+  },
+
+  "tandaTangan": {
+    "pertama": { "nama": "<Nama Direktur>", "jabatan": "Direktur" },
+    "kedua": { "nama": "<Nama Wakil>", "jabatan": "Direktur Utama" }
+  }
+}

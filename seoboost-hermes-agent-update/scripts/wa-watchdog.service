@@ -1,0 +1,11 @@
+[Unit]
+Description=WhatsApp bridge watchdog for the Hermes gateway
+Documentation=file:%h/.hermes/bin/wa-watchdog.sh
+After=hermes-gateway.service
+
+[Service]
+Type=oneshot
+Environment=HERMES_HOME=%h/.hermes
+ExecStart=%h/.hermes/bin/wa-watchdog.sh
+StandardOutput=journal
+StandardError=journal

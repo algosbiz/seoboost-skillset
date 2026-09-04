@@ -1,0 +1,12 @@
+{
+  "name": "seoboost-marketing",
+  "description": "Marketing skills for AI agents — conversion optimization, copywriting, SEO, paid ads, ad creative, and growth (SEO Boost namespace; upstream: coreyhaines31/marketingskills)",
+  "version": "2.6.0",
+  "author": {
+    "name": "Corey Haines"
+  },
+  "homepage": "https://github.com/coreyhaines31/marketingskills",
+  "repository": "https://github.com/coreyhaines31/marketingskills",
+  "license": "MIT",
+  "skills": "./skills"
+}

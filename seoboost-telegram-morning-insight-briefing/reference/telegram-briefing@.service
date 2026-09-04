@@ -1,0 +1,13 @@
+[Unit]
+Description=Telegram scheduled briefing (%i)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# Run from home so the telegram plugin stays DISABLED here -> headless claude -p
+# won't spawn a rival getUpdates poller. %i = the profile id passed by the timer.
+WorkingDirectory=%h
+Environment=PATH=%h/.bun/bin:%h/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ExecStart=%h/.claude/telegram-briefing/run-briefing.sh %i
+TimeoutStartSec=600

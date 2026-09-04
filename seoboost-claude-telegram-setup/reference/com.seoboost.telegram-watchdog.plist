@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Watchdog: every 300s, check the telegram channel host and restart it if the
+  poller died OR the agent hung (stale transcript + pending updates) OR a rival
+  poller appeared. Keeps the bot answering while the operator is away.
+
+  Install:
+    launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.seoboost.telegram-watchdog.plist
+    launchctl enable gui/$(id -u)/com.seoboost.telegram-watchdog
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.seoboost.telegram-watchdog</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/<user>/.claude/channels/telegram/watchdog.sh</string>
+  </array>
+
+  <key>StartInterval</key>
+  <integer>300</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/<user>/.bun/bin:/Users/<user>/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>HOME</key>
+    <string>/Users/<user></string>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>/Users/<user>/Library/Logs/seoboost-telegram-watchdog.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/<user>/Library/Logs/seoboost-telegram-watchdog.err.log</string>
+</dict>
+</plist>

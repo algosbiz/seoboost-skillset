@@ -1,0 +1,9 @@
+{
+  "name": "seoboost-invoice-generator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Config-driven SEO Boost invoice generator (docx). Run `npm install` here once, then node generate_invoice.js <config.json>.",
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}

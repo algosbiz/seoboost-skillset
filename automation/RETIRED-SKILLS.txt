@@ -1,0 +1,37 @@
+# Tombstone skill seoboost-* yang resmi dipensiunkan dari ekosistem.
+# HANYA nama di file ini yang boleh dihapus sync-skills.sh dari ~/.claude/skills
+# saat dir-nya tidak ada di repo. Satu nama per baris, persis nama dir.
+# Sumber keputusan: ProjectDocs/skill-ecosystem-audit-2026-08-28/ (audit 28-29 Agu 2026).
+seoboost-clean-architecture
+seoboost-clean-code
+seoboost-continuous-discovery
+seoboost-ddia-systems
+seoboost-design-everyday-things
+seoboost-design-sprint
+seoboost-domain-driven-design
+seoboost-gsap-core
+seoboost-gsap-frameworks
+seoboost-gsap-performance
+seoboost-gsap-plugins
+seoboost-gsap-react
+seoboost-gsap-scrolltrigger
+seoboost-gsap-timeline
+seoboost-gsap-utils
+seoboost-high-perf-browser
+seoboost-inspired-product
+seoboost-jobs-to-be-done
+seoboost-open-seo-coach
+seoboost-open-seo-competitive-landscape
+seoboost-open-seo-competitor-analysis
+seoboost-open-seo-keyword-clustering
+seoboost-open-seo-keyword-research
+seoboost-open-seo-link-prospecting
+seoboost-open-seo-project-setup
+seoboost-pragmatic-programmer
+seoboost-refactoring-patterns
+seoboost-refactoring-ui
+seoboost-release-it
+seoboost-software-design-philosophy
+seoboost-system-design
+seoboost-team-topologies
+seoboost-frontend-design

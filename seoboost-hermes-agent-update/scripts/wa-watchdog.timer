@@ -1,0 +1,14 @@
+[Unit]
+Description=Probe the Hermes WhatsApp bridge every minute
+
+[Timer]
+# 2 min after boot so the gateway has a chance to come up first, then hourly-
+# by-the-minute. A zombie bridge is invisible to systemd, so this probe is the
+# only thing that notices.
+OnBootSec=2min
+OnUnitActiveSec=60s
+AccuracySec=10s
+Unit=wa-watchdog.service
+
+[Install]
+WantedBy=timers.target

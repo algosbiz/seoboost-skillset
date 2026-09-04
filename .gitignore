@@ -1,0 +1,42 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build/output
+dist/
+build/
+*.zip
+*.tar.gz
+
+# Credentials (NEVER commit)
+credentials.json
+client_secret*.json
+token.json
+oauth_token*.json
+*.pem
+*.key
+
+# Logs
+*.log
+logs/

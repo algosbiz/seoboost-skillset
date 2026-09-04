@@ -1,0 +1,26 @@
+{
+  "skill_name": "seoboost-tulis-indonesia",
+  "evals": [
+    {
+      "id": 0,
+      "name": "kalke-dari-sumber-inggris",
+      "prompt": "Aku dapat ringkasan riset ini dari partner di London, tolong tulis ulang jadi ringkasan eksekutif Bahasa Indonesia sekitar 400 kata untuk board kami. Ini sumbernya:\n\n\"At the end of the day, the company's competitive moat is thin. Our analysis maps to three findings. First, unit economics don't close: CAC is $47 while LTV sits at $61, and that gap comes with significant churn risk. Second, the incumbent already owns the household-facing layer — they took that ground in Q3 and the low-hanging fruit is gone. Third, moving forward, the wedge is enterprise compliance budgets, not consumer spend. We should get everyone on the same page before the board meeting. The three-minute video is already made.\"\n\nSimpan sebagai ringkasan-eksekutif.md",
+      "expected_output": "Ringkasan eksekutif Bahasa Indonesia ragam konsultan, tanpa kalke seperti 'pada akhir hari', 'memetakan ke', 'benteng kompetitif', 'buah menggantung rendah', 'bergerak maju', 'halaman yang sama', 'sudah jadi'. Angka dipertahankan lengkap dengan satuan.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "name": "salinan-web-tanpa-campur-bahasa",
+      "prompt": "Bikinin copy untuk landing page produk kami namanya Warungku — aplikasi kasir dan stok buat pemilik warung kecil di Indonesia. Yang aku butuh: headline, subheadline, 3 blok manfaat, sama 2 label tombol. Target usernya ibu-ibu dan bapak-bapak pemilik warung umur 30-55, bukan orang teknologi. Tolong jangan kaku kayak dokumen pemerintah tapi juga jangan campur-campur bahasa Inggris. Simpan ke landing-warungku.md",
+      "expected_output": "Salinan pemasaran hangat dan ringkas, memakai sapaan konsisten, tanpa campur bahasa Inggris (grow, scalable, user-friendly, seamless), label tombol berupa kata kerja hasil, bukan 'Submit' atau 'Klik di sini'. Tidak diformalkan berlebihan menjadi ragam akademis.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "analisis-keuangan-anti-ambigu",
+      "prompt": "tolong tulis bagian analisis kinerja kuartal buat laporan internal ke manajemen. datanya gini: pendapatan Q3 2026 Rp4,2 miliar naik dari Rp3,74 miliar di Q3 2025. kanal ritel nyumbang Rp380 juta dari total kenaikan Rp460 juta, sisanya dari korporat. margin kotor turun dari 42% ke 38% karena harga bahan baku naik. proyeksi Q4 Rp4,6 miliar. tulis yang jelas jangan ngambang, ini bakal dibaca direksi. simpan ke analisis-q3.md",
+      "expected_output": "Ragam analis keuangan: setiap angka bersatuan dan berperiode, perbandingan menyebut pembandingnya, penyebab selisih dijelaskan, asumsi proyeksi dinyatakan eksplisit, tanpa kata sifat samar seperti 'cukup baik' atau 'menggembirakan', tanpa keterangan waktu relatif seperti 'segera'.",
+      "files": []
+    }
+  ]
+}

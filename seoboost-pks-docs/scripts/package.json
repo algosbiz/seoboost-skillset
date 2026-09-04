@@ -1,0 +1,9 @@
+{
+  "name": "seoboost-pks-generator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Config-driven SEO Boost Perjanjian Kerja Sama (PKS) generator (docx). Run `npm install` here once, then node generate_pks.js <config.json>.",
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}
