@@ -5,9 +5,9 @@
 > *"Read `agent-memory/AGENT-ONBOARDING.md` and follow it."* Edits land for everyone
 > via `git pull` — keep it machine-agnostic (no host-specific paths hardcoded).
 
-Repo: `https://github.com/<org>/seoboost-skill-set` (PRIVATE)
-**The org/URL above is a PLACEHOLDER** — replace it with the real remote the first time
-this repo is pushed anywhere.
+Repo: <https://github.com/algosbiz/seoboost-skillset> (PRIVATE)
+Note the remote is named `seoboost-skillset` while the working copy is `seoboost-skill-set` —
+clone with an explicit target dir (see README) so tooling that keys off the folder name agrees.
 **Clone path differs per machine** — do NOT hardcode it. Each machine records its own
 clone path in `agent-memory/seoboost-proactive-memory-<label>.md`, created by running
 `bash agent-memory/bootstrap.sh <label>` on that machine. Use that path wherever this doc

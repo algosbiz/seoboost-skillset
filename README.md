@@ -85,8 +85,9 @@ Trio referensi untuk men-ship fitur ber-migration ke produksi dengan aman. Tipe 
 Clone repo lalu copy/symlink semua folder skill ke `~/.claude/skills/`:
 
 ```bash
-# ganti <org> dengan organisasi GitHub SEO Boost yang sebenarnya
-git clone https://github.com/<org>/seoboost-skill-set.git ~/Documents/seoboost-skill-set
+# Nama repo di GitHub dan nama folder kerja sengaja berbeda —
+# selalu clone dengan target dir eksplisit seperti di bawah.
+git clone https://github.com/algosbiz/seoboost-skillset.git ~/Documents/seoboost-skill-set
 cd ~/Documents/seoboost-skill-set
 
 # Option 1: Copy

@@ -18,7 +18,7 @@ This is Tier-1 of the SEO Boost agent memory (see `README.md`). It holds what is
 ## Source of truth
 
 SEO Boost skills are managed from this git repo (`seoboost-skill-set`,
-remote `https://github.com/<org>/seoboost-skill-set` — PLACEHOLDER, ganti saat repo dipush, branch `main`). The repo is the
+remote `https://github.com/algosbiz/seoboost-skillset`, branch `main`). The repo is the
 source of truth. Installed skills under `~/.claude/skills/seoboost-*/` are **real copies,
 not symlinks**, so pulling the repo does NOT update installed skills — they must be
 synced. (Each machine's clone path is recorded in that machine's proactive-memory file.)
