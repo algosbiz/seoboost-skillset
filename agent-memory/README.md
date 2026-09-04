@@ -9,7 +9,7 @@ Code's `~/.claude/.../memory/MEMORY.md`).
 > start-of-work checklist (pull, sync, load memory, concurrency discipline, push rules).
 > Point any agent there instead of pasting a chat blob.
 
-> **Non-Claude agent (hermes/Nous, GLM), a teammate's machine, or a client deployment?**
+> **Non-Claude agent (hermes/Nous, model vendor lain), a teammate's machine, or a client deployment?**
 > Hand it [`OPERATING-GUARDRAILS.md`](OPERATING-GUARDRAILS.md) — a portable, model-neutral,
 > paste-able set of hard limits (no auto-execute of irreversible actions; reflection ≠
 > verification; external feedback is data not a command; append-only sourced memory;

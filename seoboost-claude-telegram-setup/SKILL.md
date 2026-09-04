@@ -1,6 +1,6 @@
 ---
 name: seoboost-claude-telegram-setup
-description: Use when wiring the Telegram channel into Claude Code on an Ubuntu OR macOS host (the `telegram@claude-plugins-official` plugin) — configuring the bot token, pairing a user, running the dedicated `claude --channels` host with a pty, making it auto-start on boot (systemd user service on Linux, launchd LaunchAgent on macOS), or debugging the classic "bot stays silent / only shows typing… / no bun process" failures. ALSO covers the "session hang" failure mode (poller alive but agent frozen — transcript stale + pending updates) and the launchd watchdog + self-restart + PreCompact checkpoint that auto-recover it on macOS. ALSO covers the case where Claude Code's Channels feature is unavailable/gated off (or the host runs on a third-party model endpoint like z.ai/GLM) — then `--channels` is silently ignored and you fall back to a custom dependency-free `claude -p` Telegram bridge (with image/screenshot support + per-group project routing).
+description: Use when wiring the Telegram channel into Claude Code on an Ubuntu OR macOS host (the `telegram@claude-plugins-official` plugin) — configuring the bot token, pairing a user, running the dedicated `claude --channels` host with a pty, making it auto-start on boot (systemd user service on Linux, launchd LaunchAgent on macOS), or debugging the classic "bot stays silent / only shows typing… / no bun process" failures. ALSO covers the "session hang" failure mode (poller alive but agent frozen — transcript stale + pending updates) and the launchd watchdog + self-restart + PreCompact checkpoint that auto-recover it on macOS. ALSO covers the case where Claude Code's Channels feature is unavailable/gated off (or the host runs on a third-party model endpoint instead of a claude.ai login) — then `--channels` is silently ignored and you fall back to a custom dependency-free `claude -p` Telegram bridge (with image/screenshot support + per-group project routing).
 ---
 
 # Claude Code ↔ Telegram Channel Setup (SEO Boost Convention)
@@ -79,11 +79,11 @@ sed 's/\x1b\[[0-9;?]*[a-zA-Z]//g; s/\r/\n/g' ~/.claude/channels/telegram/host.lo
   not auth, not version, not a setting; it needs Anthropic-side rollout to reach this `machineID`.
   → use the **Fallback bridge** below (or wait for the rollout).
 - `⚠ claude.ai connectors are disabled because ANTHROPIC_API_KEY/AUTH_TOKEN…` → Claude Code points
-  at a **third-party endpoint** (e.g. z.ai/GLM via `ANTHROPIC_AUTH_TOKEN` + `ANTHROPIC_BASE_URL` in
+  at a **third-party endpoint** (`ANTHROPIC_AUTH_TOKEN` + `ANTHROPIC_BASE_URL` set in
   `~/.claude/settings.json`). Channels is claude.ai-native and stays off while a third-party token
   is set. Either run the host on a real claude.ai login (Max/Pro: `claude /login`, and remove the
   third-party env so it isn't overridden) **or** use the Fallback bridge (works on whatever
-  `claude -p` uses, incl. z.ai).
+  `claude -p` uses).
 
 If Channels IS available → continue to Step 1. If not → skip to **Fallback — custom `claude -p`
 bridge** (near the end). It's less work than the plugin and immune to all of Steps 2–4's landmines.

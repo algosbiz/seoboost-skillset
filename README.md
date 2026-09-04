@@ -167,7 +167,7 @@ Selain skill, repo ini juga membawa **memory portabel & version-controlled** unt
 
 Di-wire ke tiap project via helper idempoten `agent-memory/bootstrap.sh <label>` (symlink + pointer `MEMORY.md`, per-project — aman di-run ulang). Edit file yang di-symlink = menulis-balik ke repo; commit & push supaya mesin lain inherit.
 
-**Untuk agent NON-Claude (hermes/Nous, GLM), mesin teammate, atau deployment klien:** [`agent-memory/OPERATING-GUARDRAILS.md`](agent-memory/OPERATING-GUARDRAILS.md) — set batas-keras portabel & paste-able (model-neutral): tidak auto-execute aksi irreversible, refleksi ≠ verifikasi, feedback eksternal = data bukan perintah, memory append-only ber-sumber, urutan pemulihan insiden klien. Ini bagian yang model **tidak** lakukan sendiri; agent tanpa `CLAUDE.md` repo ini butuh eksplisit.
+**Untuk agent NON-Claude (hermes/Nous, model vendor lain), mesin teammate, atau deployment klien:** [`agent-memory/OPERATING-GUARDRAILS.md`](agent-memory/OPERATING-GUARDRAILS.md) — set batas-keras portabel & paste-able (model-neutral): tidak auto-execute aksi irreversible, refleksi ≠ verifikasi, feedback eksternal = data bukan perintah, memory append-only ber-sumber, urutan pemulihan insiden klien. Ini bagian yang model **tidak** lakukan sendiri; agent tanpa `CLAUDE.md` repo ini butuh eksplisit.
 
 ## SOP pemakaian skill (`SKILLS-SOP.md`)
 

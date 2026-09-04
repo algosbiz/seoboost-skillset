@@ -167,7 +167,7 @@ verdict — the north-star for evolving SEO Boost skills. **Do NOT build a singl
 `seoboost-skill-candidate` → `writing-skills`. Iron Law of writing-skills = watch the baseline
 FAIL first. It didn't: **5/5 pressure scenarios passed** — 3 inside Claude Code (CLAUDE.md
 enforces the discipline) AND **2 with a naked agent, no SEO Boost context at all** (simulating
-Putu's machine / a Nous-based hermes). Even naked, agents gated an irreversible email blast,
+a teammate's machine / a Nous-based hermes). Even naked, agents gated an irreversible email blast,
 ranked tasks by risk, refused reasoning-as-evidence, ran real checks, and stopped for human
 sign-off before client delivery — from general model competence. Situational-read +
 verification + autonomy-restraint are **emergent + already covered**; a skill would duplicate

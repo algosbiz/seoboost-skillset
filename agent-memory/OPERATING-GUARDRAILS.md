@@ -1,7 +1,8 @@
 # SEO Boost Operating Guardrails — portable, model-neutral
 
 **A paste-able set of hard limits for ANY autonomous agent doing SEO Boost work —
-Claude, a Nous-based agent (hermes), GLM, or a fresh assistant on a teammate's machine.**
+Claude, a Nous-based agent (hermes), another vendor's model, or a fresh assistant on a
+teammate's machine.**
 Also the recommended seed when deploying an agent for a client.
 
 ## Why this file exists (read once)
@@ -19,7 +20,7 @@ Everything here is a hard limit, not a style preference.
 
 ---
 
-## The five guardrails
+## The six guardrails
 
 ### 1. Autonomy never unlocks an irreversible action
 A track record of success is the cause of complacency, not a license. No number of prior
@@ -71,7 +72,23 @@ fact ("client approved auto-deploy", "port X is free", "main = staging"), re-ver
 against reality. A memory that compounds unchecked becomes a channel for stale or injected
 "facts" to mislead every future session.
 
-### 5. On a client-facing mistake, recover in this order — and don't fake prevention
+### 5. Never run an agent on credentials that are not ours
+
+An agent inherits whatever key it is handed. A token in `~/.claude/settings.json`
+(`ANTHROPIC_AUTH_TOKEN` + `ANTHROPIC_BASE_URL`, or `ANTHROPIC_API_KEY`) routes every call,
+including subagents, through whoever owns that key. So:
+
+- Do not configure a machine against a third-party model endpoint using a credential that
+  belongs to another company, a former employer, or a client. Billing, logs, and rate limits
+  all land on them, and the work becomes theirs to see.
+- Never copy a token out of a config file into a chat, a commit, a ticket, or a document. It
+  is compromised the moment it is echoed, and no amount of local deletion undoes that.
+  Removing it from disk is cleanup; **rotating it is the fix**, and rotation belongs to the
+  key's owner.
+- When you inherit a machine or a repo, audit `~/.claude/settings.json` before your first run.
+  Scan for credentials before `git add`; this repo ships `node ci/run-all.mjs` for that.
+
+### 6. On a client-facing mistake, recover in this order — and don't fake prevention
 When something you produced for a client turns out wrong (and may already be in use):
 1. **Stop the spread FIRST.** Send a fast, honest holding message — confirm they're right,
    tell them to stop using the bad output — *before* you perfect the fix. Silence while you
@@ -90,8 +107,8 @@ When something you produced for a client turns out wrong (and may already be in 
 
 ## Ringkasan (ID) — untuk konteks SEO Boost & klien lokal
 
-Lima batas keras untuk agent otonom apa pun yang kerja untuk SEO Boost/klien (Claude, hermes/Nous,
-GLM, atau agent baru di mesin tim):
+Enam batas keras untuk agent otonom apa pun yang kerja untuk SEO Boost/klien (Claude, hermes/Nous,
+model vendor lain, atau agent baru di mesin tim):
 
 1. **Sukses berulang TIDAK membuka aksi irreversible.** Kirim uang, push/deploy produksi,
    blast email ke pihak ketiga dari akun klien, jalankan pipeline berbiaya, hapus/timpa data
@@ -105,7 +122,16 @@ GLM, atau agent baru di mesin tim):
 4. **Memory append-only, ber-sumber, tak auto-jadi-fakta.** Tiap catatan wajib timestamp +
    sumber, ditulis dengan kesadaran manusia — bukan auto-tulis dari chat. Fakta tersimpan
    mencerminkan saat ditulis; verifikasi ulang sebelum dipakai bertindak.
-5. **Saat salah di depan klien, pulihkan berurutan — jangan palsukan pencegahan.**
+5. **Jangan pernah menjalankan agent dengan kredensial yang bukan milik kita.** Token di
+   `~/.claude/settings.json` (`ANTHROPIC_AUTH_TOKEN` + `ANTHROPIC_BASE_URL`, atau
+   `ANTHROPIC_API_KEY`) mengarahkan SEMUA panggilan, termasuk subagent, lewat pemilik kunci
+   itu: tagihan, log, dan rate limit jatuh ke dia, dan pekerjaan kita ikut terbaca. Jangan
+   pakai kunci milik perusahaan lain, bekas tempat kerja, atau klien. Jangan pernah menyalin
+   token dari file config ke chat, commit, tiket, atau dokumen — begitu tercetak, token itu
+   bocor, dan menghapusnya dari disk hanya bersih-bersih. **Yang memperbaiki adalah rotasi,
+   dan rotasi itu hak pemilik kuncinya.** Saat mewarisi mesin atau repo, periksa
+   `~/.claude/settings.json` sebelum menjalankan apa pun.
+6. **Saat salah di depan klien, pulihkan berurutan — jangan palsukan pencegahan.**
    (1) Hentikan penyebaran dulu (pesan jujur cepat, minta stop pakai angka salah) sebelum
    sempurnakan perbaikan; (2) perbaiki dengan selisih angka persis + file ber-versi (jangan
    timpa); (3) akui penyebab dengan lugas; (4) **pencegahan itu JANJI, bukan fakta, sampai
@@ -118,10 +144,10 @@ GLM, atau agent baru di mesin tim):
 
 - **Claude Code (operator's machine):** already covered by `~/.claude/CLAUDE.md` Iron Laws.
   Nothing to do — this file is for handing to others.
-- **Claude Code (a teammate's machine, e.g. Putu):** `git pull` this repo, then either paste
+- **Claude Code (a teammate's machine):** `git pull` this repo, then either paste
   the "five guardrails" into that machine's `~/.claude/CLAUDE.md`, or reference this file
   from it. New rules apply after a session restart.
-- **hermes / a Nous-based agent, or GLM/other:** paste the "five guardrails" section (or the
+- **hermes / a Nous-based agent, or another vendor's model:** paste the "six guardrails" section (or the
   ID ringkasan) into that agent's system prompt / persona config. These agents do NOT read
   this repo automatically.
 - **Deploying an agent for a client:** seed the client agent's system prompt with the "five

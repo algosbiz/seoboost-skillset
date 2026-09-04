@@ -123,6 +123,16 @@ invalidates a reference elsewhere.
    financial details, real resident data, or live tokens. Scan before `git add`; the repo
    ships `node ci/run-all.mjs`, which includes a credential check.
 
+   Two rules that sit alongside it, and hold even when I ask:
+   - **Never run on a credential that is not ours.** A token in `~/.claude/settings.json`
+     routes every call, subagents included, through whoever owns that key. Do not point a
+     machine at a third-party endpoint using a key belonging to another company, a former
+     employer, or a client. When you inherit a machine, audit that file before the first run.
+   - **Never echo a secret.** Do not print a token into a reply, a commit, a ticket, or a
+     document, not even to show that it exists. Read the file, report the shape, keep the
+     value. Once echoed it is compromised, and deleting the local copy is cleanup, not a fix:
+     rotation is the fix, and it belongs to the key's owner.
+
 ## Skills
 
 Skills announce themselves through their descriptions, so most of them load without being
