@@ -27,6 +27,12 @@ Pipeline for one Adsy export, in order. Steps 1 to 4 cost no Ahrefs units.
   casino or piracy traffic, sold posts carrying the traffic). merge.py exempts any domain with 500+
   refdomains from the fake_traffic gate: low keyword count on a well-linked site signals link-driven
   traffic, not bots. Those domains are marked borderline instead of fake_traffic.
+- Traffic spike is spam (team rule, 2026-11-11). For every domain that passes the gate with a
+  dofollow or mixed link, pull Ahrefs `site-explorer-metrics` with `date` set 6 months back
+  (about 50 units each). If traffic then was under 10% of traffic now, the site is spam: years flat
+  near zero, then a sudden vertical jump, as on alphacraftai.com (0 in May 2026, 24,862 in Nov).
+  10% to 20% is "rising fast": keep it, but open the Site Explorer chart before buying.
+  Save the snapshots to `<batch>.traffic-6mo.csv`.
 - Do not rescan anything in already-scanned.
 - Banned forever: domains in `sources/banned.txt` were rejected by the team after a manual link check
   (first list: 31 English AVC domains, 2026-11-11). Never scan them again, never buy from them, and
