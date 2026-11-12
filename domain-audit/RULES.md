@@ -1,5 +1,9 @@
 # Domain audit rules
 
+For a client's Adsy list (SBM, NBV and the rest), follow `CLIENT-BATCH-PLAYBOOK.md`: it holds the
+full order of work the team set on 2026-11-12, the status list and the ban step. This file holds
+the thresholds and the reasons behind them.
+
 Pipeline for one Adsy export, in order. Steps 1 to 4 cost no Ahrefs units.
 
 1. `python3 -I extract.py batches/<batch>.raw.txt` writes `<batch>.domains.txt` and `<batch>.listing.csv`.
@@ -42,7 +46,8 @@ Pipeline for one Adsy export, in order. Steps 1 to 4 cost no Ahrefs units.
   a client's list may still be scanned and used for other clients, but never offered to that client
   again. First list: spabalimoon (50 sites, from the 2025 and 2026 completed-task reports). The raw
   reports carry task costs, so they are not committed; refresh the list from a new report instead.
-- Do not rescan anything in already-scanned.
+- Do not rescan anything in already-scanned. Exception: a domain whose stored Ahrefs data was lost
+  may be rescanned once, after the team agrees (first case: 11 SBM domains, 2026-11-12).
 - Banned forever: `banned/<batch>/domains.txt` holds domains the team rejected after a manual link
   check, one folder per batch: `english-avc` (31 domains, 2026-11-11), `nbv` (22 domains,
   2026-11-12) and `sbm` (135 domains, 2026-11-12: every SBM domain rated Adsy No-index, nofollow, spam by name,
