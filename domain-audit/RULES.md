@@ -33,6 +33,11 @@ Pipeline for one Adsy export, in order. Steps 1 to 4 cost no Ahrefs units.
   near zero, then a sudden vertical jump, as on alphacraftai.com (0 in May 2026, 24,862 in Nov).
   10% to 20% is "rising fast": keep it, but open the Site Explorer chart before buying.
   Save the snapshots to `<batch>.traffic-6mo.csv`.
+- Already used by a client: `used-by-client/<client>/domains.txt` lists every site where that client
+  already has a placement, taken from the Adsy Tasks report (Report button, all tasks). A site in
+  a client's list may still be scanned and used for other clients, but never offered to that client
+  again. First list: spabalimoon (50 sites, from the 2025 and 2026 completed-task reports). The raw
+  reports carry task costs, so they are not committed; refresh the list from a new report instead.
 - Do not rescan anything in already-scanned.
 - Banned forever: `banned/<batch>/domains.txt` holds domains the team rejected after a manual link
   check, one folder per batch: `english-avc` (31 domains, 2026-11-11) and `nbv` (22 domains,
