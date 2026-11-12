@@ -44,8 +44,9 @@ Pipeline for one Adsy export, in order. Steps 1 to 4 cost no Ahrefs units.
   reports carry task costs, so they are not committed; refresh the list from a new report instead.
 - Do not rescan anything in already-scanned.
 - Banned forever: `banned/<batch>/domains.txt` holds domains the team rejected after a manual link
-  check, one folder per batch: `english-avc` (31 domains, 2026-11-11) and `nbv` (22 domains,
-  2026-11-12). `scanned.py build` reads every folder, so `scanned.py filter` drops them before any
+  check, one folder per batch: `english-avc` (31 domains, 2026-11-11), `nbv` (22 domains,
+  2026-11-12) and `sbm` (129 domains, 2026-11-12: every SBM domain rated Adsy No-index, nofollow,
+  fake traffic, low traffic, borderline, link not confirmed, traffic spike or price too high). `scanned.py build` reads every folder, so `scanned.py filter` drops them before any
   check. Never scan them again, never buy from them, and never remove a line without the team's
   decision. A new banned batch gets its own folder.
 
