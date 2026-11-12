@@ -15,6 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SOURCES = ROOT / "sources"
+BANNED = ROOT / "banned"  # one folder per batch, each with domains.txt; never rescan or buy
 LIST_TXT = ROOT / "already-scanned.txt"
 LIST_CSV = ROOT / "already-scanned.csv"
 HOST_RE = re.compile(r"^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$")
@@ -44,8 +45,8 @@ def read_hosts(path):
 def build():
     entries = {}
     dupes_within, malformed = [], []
-    for src in sorted(SOURCES.glob("*.txt")):
-        category = src.stem
+    for src in sorted(SOURCES.glob("*.txt")) + sorted(BANNED.glob("*/*.txt")):
+        category = src.stem if src.parent == SOURCES else f"banned_{src.parent.name}"
         hosts, bad = read_hosts(src)
         malformed += [(category, b) for b in bad]
         seen = set()

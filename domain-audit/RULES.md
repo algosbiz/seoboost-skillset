@@ -34,9 +34,11 @@ Pipeline for one Adsy export, in order. Steps 1 to 4 cost no Ahrefs units.
   10% to 20% is "rising fast": keep it, but open the Site Explorer chart before buying.
   Save the snapshots to `<batch>.traffic-6mo.csv`.
 - Do not rescan anything in already-scanned.
-- Banned forever: domains in `sources/banned.txt` were rejected by the team after a manual link check
-  (first list: 31 English AVC domains, 2026-11-11). Never scan them again, never buy from them, and
-  never remove a line from that file without the team's decision.
+- Banned forever: `banned/<batch>/domains.txt` holds domains the team rejected after a manual link
+  check, one folder per batch: `english-avc` (31 domains, 2026-11-11) and `nbv` (22 domains,
+  2026-11-12). `scanned.py build` reads every folder, so `scanned.py filter` drops them before any
+  check. Never scan them again, never buy from them, and never remove a line without the team's
+  decision. A new banned batch gets its own folder.
 
 ## State of the scan history
 
