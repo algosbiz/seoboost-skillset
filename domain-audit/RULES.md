@@ -28,11 +28,15 @@ Pipeline for one Adsy export, in order. Steps 1 to 4 cost no Ahrefs units.
   refdomains from the fake_traffic gate: low keyword count on a well-linked site signals link-driven
   traffic, not bots. Those domains are marked borderline instead of fake_traffic.
 - Traffic spike is spam (team rule, 2026-11-11). For every domain that passes the gate with a
-  dofollow or mixed link, pull Ahrefs `site-explorer-metrics` with `date` set 6 months back
+  dofollow or mixed link, pull Ahrefs `site-explorer-metrics` with `date` set 12 months back
   (about 50 units each). If traffic then was under 10% of traffic now, the site is spam: years flat
   near zero, then a sudden vertical jump, as on alphacraftai.com (0 in May 2026, 24,862 in Nov).
   10% to 20% is "rising fast": keep it, but open the Site Explorer chart before buying.
-  Save the snapshots to `<batch>.traffic-6mo.csv`.
+  Save the snapshots to `<batch>.traffic-12mo.csv`.
+  Why 12 and not 6 months: the first version looked 6 months back and passed measuralogic.com,
+  whose spike began in March 2026 (0 traffic and 1 referring domain in Nov 2025, 2,028 by May,
+  6,454 by Sep). By the 6-month date the climb had already started, so it looked like normal
+  growth. Batches checked only at 6 months (NBV, SBM before 2026-11-12) need the 12-month pass.
 - Already used by a client: `used-by-client/<client>/domains.txt` lists every site where that client
   already has a placement, taken from the Adsy Tasks report (Report button, all tasks). A site in
   a client's list may still be scanned and used for other clients, but never offered to that client
